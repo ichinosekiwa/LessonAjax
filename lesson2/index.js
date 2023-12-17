@@ -6,6 +6,11 @@ async function addressData() {
   const zipcodeItem = document.getElementById('text').value;
   const searchResult = document.getElementById('address');
   const errorTxt = document.getElementById('error');
+  const loadingImg = document.getElementById('loadingImg');
+
+  // 通信中のgifを表示
+  loadingImg.style.marginTop = '24px';
+  loadingImg.style.display = 'block';
 
   // 郵便番号が半角数字7桁であるかをチェック
   if (!/^\d{7}$/.test(zipcodeItem)) {
@@ -32,5 +37,8 @@ async function addressData() {
     console.error('エラーが発生しました:', error);
     errorTxt.textContent = 'エラーが発生しました。';
     searchResult.textContent = '';
+  } finally {
+    // 通信中のgifを削除
+    loadingImg.style.display = 'none';
   }
 }
