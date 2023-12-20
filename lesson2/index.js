@@ -16,6 +16,7 @@ async function addressData() {
   if (!/^\d{7}$/.test(zipcodeItem)) {
     errorTxt.textContent = '正しく入力してください';
     searchResult.textContent = '';
+    loadingImg.style.display = 'none';
     return;
   }
 
