@@ -20,10 +20,6 @@ async function addressData() {
     return;
   }
 
-  //   try {
-  //     const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcodeItem}`);
-  //     const data = await res.json();
-
   fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcodeItem}`)
     .then((response) => response.json())
     .then((data) => {
